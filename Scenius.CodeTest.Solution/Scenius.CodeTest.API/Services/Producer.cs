@@ -1,6 +1,5 @@
 ﻿using MassTransit;
 using Scenius.CodeTest.API.Models;
-using Scenius.CodeTest.API.Records;
 
 namespace Scenius.CodeTest.API.Services
 {
@@ -13,10 +12,10 @@ namespace Scenius.CodeTest.API.Services
             _bus = bus;
         }
 
-        public async Task ExecuteAsync(CancellationToken stoppingToken, Models.Calculation calculation)
+        public async Task ExecuteAsync(CancellationToken stoppingToken, Calculation calculation)
         {
 
-            var endpoint = await _bus.GetSendEndpoint(new Uri("queue:test?durable=true"));
+            var endpoint = await _bus.GetSendEndpoint(new Uri("queue:post-calculation?durable=true"));
             await endpoint.Send(calculation);   
             //.Publish(new Records.Calculation { Value = $"{calculation.Input} = {calculation.Result}" }, stoppingToken);
         }

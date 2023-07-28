@@ -1,0 +1,25 @@
+Wat nog te doen:
+Front-end:
+	TestCafé end-to-end tests maken
+	Karma unit tests van functions maken
+	Containerization toevoegen (dockerfile schrijven)
+	UI verbeteren (en deze UI testen bij mensen zodat het er professioneel uit kan zien)
+	Bugs fixen (waar nodig)
+	Gepagineerde opvraag resultaten ondersteunen
+	WebSocket verbinding opzetten
+Back-end:
+	xUnit tests toevoegen
+	Exception handling toevoegen/verbeteren
+	Documentatie maken die uitlegt wat elke applicatie doet
+	Docker-Compose opzetten.
+	Wegens dockerfiles kan het al meerdere consumers tegelijkertijd hebben.
+	Toevoegen unary operators en haakjes
+	Resultaat terugsturen via de message bus (andere queue iets terugsturen)
+	Gepagineerde opvraag resultaten ondersteunen (Gelimiteerd aantal opsturen, gebaseerd op een index welke opgestuurd moeten worden)
+	WebSocket verbinding opzetten
+	Bugs fixen (waar nodig)
+
+Optionele toevoegingen die voordelig zijn:
+	SQL server naar een docker container halen, die ook in de docker-compose verwerkt kan worden. Dit maakt het een stuk makkelijker op te zetten.
+	Docker-compose interne messaging opzetten, zodat de connection string naar de database niet altijd hoeft aangepast te worden.
+	

@@ -18,12 +18,5 @@ namespace Scenius.CodeTest.API.Repositories
         {
             return _context.Calculation.ToList();
         }
-
-        // Adds a calculation to the database
-        public void postCalculation(Calculation calculation)
-        {
-            _context.Add(calculation);
-            _context.SaveChanges();
-        }
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Scenius.CodeTest.API.Exceptions;
 using Scenius.CodeTest.API.Models;
 using Scenius.CodeTest.API.Services;
 
@@ -24,14 +25,24 @@ public class IngestController : ControllerBase
 	[HttpGet(Name = "GetCalculations")]
 	public IEnumerable<Calculation> Get()
 	{
-		return _ingestService.getCalculations();
+        return _ingestService.getCalculations();
 	}
 
-	// Unused Post operation that adds a calculation to the database
+	// Post operation that adds a calculation to the database via the event bus
 	[HttpPost(Name = "PostCalculation")]
-	[EnableCors("AllowSpecificOrigins")]
-	public void Post(Calculation calculation)
+	public ActionResult Post(String calculation)
 	{
-		_ingestService.performCalculation(calculation, false);
+		try
+		{
+			Calculation calc = new Calculation();
+			calc.Input = calculation;
+			_ingestService.performCalculation(calc, false);
+
+		} catch(InputException e)
+		{
+			_logger.LogError(e.Message);
+			return BadRequest();
+		}
+		return Ok();
 	}
 }

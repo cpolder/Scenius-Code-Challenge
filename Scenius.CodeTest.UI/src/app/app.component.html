@@ -1,4 +1,8 @@
 <app-calculator></app-calculator>
+<form>
+    <input #box>
+    <button (click)="postfunction(box.value)">Submit</button>
+</form>
 <button (click)="function()">Retrieve Calculations!</button>
 <div class="hallo">
     <li *ngFor="let calc of hallo">

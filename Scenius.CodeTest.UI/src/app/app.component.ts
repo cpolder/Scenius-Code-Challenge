@@ -23,6 +23,10 @@ export class AppComponent {
       this.hallo = <Array<Calculation>>result;
     });
   }
+
+  postfunction(value: string) {
+    this._http.post('http://localhost:5000/ingest', value).subscribe();
+  }
 }
 export interface Calculation {
   id: Number;

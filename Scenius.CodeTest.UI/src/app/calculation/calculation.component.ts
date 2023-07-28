@@ -14,5 +14,5 @@ export class CalculationComponent {
     this.result = result;
   }
 
-  function
+  
 }
